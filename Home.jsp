@@ -21,6 +21,7 @@
 			position: relative;
 		}
 		
+		/* 상단바 */
 		.section {
 			width: 100%;
 			height: 70px;
@@ -47,16 +48,16 @@
 			
 		}
 		
-		.login ul {
+		.mypage ul {
 			display: flex;
 		}
 		
-		.login ul li {
+		.mypage ul li {
 			margin-right: 30px;
 			font-size: 16px;
 		}
 		
-		.login a {
+		.mypage a {
 			color: lightgray;
 		}
 		
@@ -98,12 +99,14 @@
 		.menu > li:hover .submenu {
 		  height: 100%; /*서브메뉴 li한개의 높이 50*5*/
 		  transition-duration: 1s;}
-  
+		  
+		.sidebar, .content {display: inline-block;}
+		/* 사이드바(프로필) */
 		.sidebar {
-			width:200px; 
-			height:700px; 
+			width:30%; 
+			height:1000px; 
 			float:left; 
-			margin:100px 20px 20px 100px;
+			margin:100px auto;
 		}
 		
 		.pic { 
@@ -114,11 +117,13 @@
 			display: block; 
 		}
         .profile {
+        	width: 200px;
         	height: 300px; 
         	text-align: center; 
         	font-family: Courier;
         	border: 2px black solid;
         	border-radius: 5px;
+        	float:right;
         }
         .profile > h3 {
         	font-family: Courier; 
@@ -131,15 +136,23 @@
         	margin:5px; 
         }
 		
-        .content {padding: 20px 0 20px 0; }
-        .page {margin-bottom: 30px;}
+		/* 글 목록 */
+        .content {
+        	padding: 20px 0 20px 0; 
+        	display: flex;
+        }
+        .page {
+        	margin-bottom: 30px;
+        	
+        }
 
+		.con1, .con2, .con3 {float:left;}
         table {
-        margin: 20px 100px 0 400px;
-        width: 700px;
-        border-radius: 5px;
-        border-collapse: collapse;
-        border-top: none;
+	        margin: 20px 100px 0 100px;
+	        width: 700px;
+	        border-radius: 5px;
+	        border-collapse: collapse;
+	        border-top: none;
 	    }
 	    
 	    .header {
@@ -201,10 +214,10 @@
 			      </li>			      
 			    </ul>
 		    </div>
-		    <div class="login">
+		    <div class="mypage">
 		    	<ul>
-		    		<li><a href="#">로그인</a></li>
-		    		<li><a href="#">회원가입</a></li>
+		    		<li><a href="#">채팅</a></li>
+		    		<li><a href="#">마이페이지</a></li>
 		    	</ul>
 		    </div>
 	    </div>
