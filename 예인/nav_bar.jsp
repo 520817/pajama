@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>숙분의 일</title>
 <style>
 	* {
         	text-decoration: none;
