@@ -1,0 +1,31 @@
+<web-app>
+    <!-- ListPostsServlet 설정 -->
+    <servlet>
+        <servlet-name>ListPostsServlet</servlet-name>
+        <servlet-class>com.example.ListPostsServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListPostsServlet</servlet-name>
+        <url-pattern>/listPosts</url-pattern>
+    </servlet-mapping>
+
+    <!-- ListPostsServlet2 설정 -->
+    <servlet>
+        <servlet-name>ListPostsServlet2</servlet-name>
+        <servlet-class>com.example.ListPostsServlet2</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ListPostsServlet2</servlet-name>
+        <url-pattern>/listPosts2</url-pattern>
+    </servlet-mapping>
+
+    <!-- SubmitPostServlet 설정 -->
+    <servlet>
+        <servlet-name>SubmitPostServlet</servlet-name>
+        <servlet-class>com.example.SubmitPostServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SubmitPostServlet</servlet-name>
+        <url-pattern>/submitPost</url-pattern>
+    </servlet-mapping>
+</web-app>
