@@ -9,13 +9,13 @@
         <url-pattern>/listPosts</url-pattern>
     </servlet-mapping>
 
-    <!-- ListPostsServlet2 설정 -->
+    <!-- ListPosts2Servlet 설정 -->
     <servlet>
-        <servlet-name>ListPostsServlet2</servlet-name>
-        <servlet-class>com.example.ListPostsServlet2</servlet-class>
+        <servlet-name>ListPosts2Servlet</servlet-name>
+        <servlet-class>com.example.ListPosts2Servlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ListPostsServlet2</servlet-name>
+        <servlet-name>ListPosts2Servlet</servlet-name>
         <url-pattern>/listPosts2</url-pattern>
     </servlet-mapping>
 
