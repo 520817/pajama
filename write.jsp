@@ -162,7 +162,7 @@
 <div class="head">
     	<div class="section">
     		<div class="title">
-				<a href="#"><h1>숙분의 일</h1></a>
+				<a href="Home.jsp"><h1>숙분의 일</h1></a>
 			</div>
     	
 			<div class="nav">
@@ -175,7 +175,7 @@
 			        </ul>
 			      </li>
 			      <li>
-			        <a href="#">식사</a>
+			        <a href="listPosts2">식사</a>
 			        <ul class="submenu">
 			          <li><a href="#">배달</a></li>
 			          <li><a href="#">식재료</a></li>
@@ -183,7 +183,7 @@
 			        </ul>
 			      </li>
 			      <li>
-			        <a href="#">생필품</a>
+			        <a href="listPosts">생필품</a>
 			        <ul class="submenu">
 			          <li><a href="#">생활용품</a></li>
 			          <li><a href="#">주방용품</a></li>
