@@ -13,8 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-//@WebServlet("/listPosts2")
-public class ListPostsServlet2 extends HttpServlet {
+public class ListPosts2Servlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,9 +21,11 @@ public class ListPostsServlet2 extends HttpServlet {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/board_db", "root", "1234");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/board_db00", "root", "1234");
 
-            String sql = "SELECT id, user_id, title, category, l_category, deadline, people, location, filename, content, created_at FROM posts WHERE category='식사'";
+            System.out.println("Database connected successfully");
+
+            String sql = "SELECT id, user_id, title, deadline FROM posts WHERE category='식사'";
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
 
@@ -33,29 +34,20 @@ public class ListPostsServlet2 extends HttpServlet {
                 post.setId(rs.getInt("id"));
                 post.setUserId(rs.getString("user_id"));
                 post.setTitle(rs.getString("title"));
-                post.setCategory(rs.getString("category"));
-                post.setLCategory(rs.getString("l_category"));
-                post.setDeadline(rs.getDate("deadline"));
-                post.setPeople(rs.getInt("people"));
-                post.setLocations(rs.getString("location"));
-                post.setFilename(rs.getString("filename"));
-                post.setContent(rs.getString("content"));
-                post.setCreatedAt(rs.getTimestamp("created_at"));
-                posts.add(post);
-                System.out.println("Post added: " + post.getTitle());
+                post.setDeadline(rs.getTimestamp("deadline"));
 
+                posts.add(post);
             }
 
             rs.close();
             stmt.close();
             conn.close();
-
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
+            System.out.println("Database connection or query failed");
         }
 
         request.setAttribute("posts", posts);
-        System.out.println("Posts size: " + posts.size());
         request.getRequestDispatcher("/listPosts2.jsp").forward(request, response);
     }
 }
