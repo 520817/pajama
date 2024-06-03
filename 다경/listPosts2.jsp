@@ -1,10 +1,12 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ page import="java.util.List" %>
 <%@ page import="com.example.Post" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>숙분의 일</title>
 <style>
     * {
@@ -153,7 +155,7 @@
     <div class="head">
         <div class="section">
             <div class="title">
-                <a href="#"><h1>숙분의 일</h1></a>
+                <a href="Home.jsp"><h1>숙분의 일</h1></a>
             </div>
             <div class="nav">
                 <ul class="menu">
@@ -165,7 +167,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#">식사</a>
+                        <a href="listPosts2">식사</a>
                         <ul class="submenu">
                             <li><a href="#">배달</a></li>
                             <li><a href="#">식재료</a></li>
@@ -173,7 +175,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="#">생필품</a>
+                        <a href="listPosts">생필품</a>
                         <ul class="submenu">
                             <li><a href="#">생활용품</a></li>
                             <li><a href="#">주방용품</a></li>
@@ -198,35 +200,41 @@
                 <td class="num">번호</td>
                 <td class="posttitle">제목</td>
                 <td class="writer">작성자</td>
-                <td class="postdate">작성날짜</td>
+                <td class="postdate">마감기한</td>
             </tr>
-            <%
+ 			<%
+                @SuppressWarnings("unchecked")
                 List<Post> posts = (List<Post>) request.getAttribute("posts");
-                if (posts != null) {
+                if (posts != null && !posts.isEmpty()) {
                     int index = 1;
                     for (Post post : posts) {
             %>
+
+
             <tr class="body">
                 <td><%= index++ %></td>
-                <td class="posttitle"><a href="viewPost?id=<%= post.getId() %>"><%= post.getTitle() %></a></td>
+                <td><a href="viewPost?id=<%= post.getId() %>"><%= post.getTitle() %></a></td>
                 <td><%= post.getUserId() %></td>
-                <td><%= post.getCreatedAt() %></td>
+                <td><%= post.getDeadline() %></td>
+
             </tr>
-            <%
+      		<%
                     }
                 } else {
             %>
-            <tr class="body">
+            <tr>
                 <td colspan="4">게시물이 없습니다.</td>
             </tr>
             <%
                 }
             %>
+
+
         </table>
         <br>
         <table>
             <tr>
-                <td><button onclick="location='index.jsp'">글쓰기</button></td>
+                <td><button onclick="location='write.jsp'">글쓰기</button></td>
             </tr>
         </table>
     </div>
