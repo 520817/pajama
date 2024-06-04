@@ -6,9 +6,12 @@
 <title>숙분의 일</title>
 <meta charset="UTF-8">
 <style>
+		@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+		
         * {
         	text-decoration: none;
         	list-style: none;
+        	font-family: "Jua", sans-serif;
         }
 		
 		body {
@@ -25,7 +28,7 @@
 		.section {
 			width: 100%;
 			height: 70px;
-			background-color: #5778ff;
+			background-color: #004fff;
 			margin : 0;
 			position: relative;
 			display: flex;
@@ -39,13 +42,13 @@
 		
 		.title a {
 			color: white;
+			font-size:14px;
 		}
 		
 		.nav > ul > li {
 			width: 100px;
 			margin: 0 15px;
 			text-align: center;
-			
 		}
 		
 		.mypage ul {
@@ -61,7 +64,6 @@
 			color: lightgray;
 		}
 		
-		a{font-size:14px}
 		
 		.menu {
 			  overflow: hidden;
@@ -72,7 +74,8 @@
 		  float: left;
 		  text-align: center;
 		  line-height: 40px;
-		  background-color: #5778ff;
+		  background-color: #004fff;
+		  font-size: 18px;
 		}
 		
 		.menu a {
@@ -100,7 +103,6 @@
 		  height: 100%; /*서브메뉴 li한개의 높이 50*5*/
 		  transition-duration: 1s;}
 		  
-		.sidebar, .content {display: inline-block;}
 		/* 사이드바(프로필) */
 		.sidebar {
 			width:30%; 
@@ -120,18 +122,15 @@
         	width: 200px;
         	height: 300px; 
         	text-align: center; 
-        	font-family: Courier;
         	border: 2px black solid;
         	border-radius: 5px;
         	float:right;
         }
         .profile > h3 {
-        	font-family: Courier; 
         	font-size:20px; 
         	font-weight: bold;
         }
         .profile > p {
-        	font-family: Courier; 
         	font-weight: bold; 
         	margin:5px; 
         }
@@ -147,6 +146,7 @@
         }
 
 		.con1, .con2, .con3 {float:left;}
+		
         table {
 	        margin: 20px 100px 0 100px;
 	        width: 700px;
@@ -217,7 +217,7 @@
 		    <div class="mypage">
 		    	<ul>
 		    		<li><a href="#">채팅</a></li>
-		    		<li><a href="#">마이페이지</a></li>
+		    		<li><a href="#">로그인</a></li>
 		    	</ul>
 		    </div>
 	    </div>
