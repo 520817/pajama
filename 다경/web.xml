@@ -1,23 +1,6 @@
-<web-app>
-    <!-- ListPostsServlet 설정 -->
-    <servlet>
-        <servlet-name>ListPostsServlet</servlet-name>
-        <servlet-class>com.example.ListPostsServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ListPostsServlet</servlet-name>
-        <url-pattern>/listPosts</url-pattern>
-    </servlet-mapping>
-
-    <!-- ListPosts2Servlet 설정 -->
-    <servlet>
-        <servlet-name>ListPosts2Servlet</servlet-name>
-        <servlet-class>com.example.ListPosts2Servlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>ListPosts2Servlet</servlet-name>
-        <url-pattern>/listPosts2</url-pattern>
-    </servlet-mapping>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+    http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
 
     <!-- SubmitPostServlet 설정 -->
     <servlet>
@@ -28,4 +11,34 @@
         <servlet-name>SubmitPostServlet</servlet-name>
         <url-pattern>/submitPost</url-pattern>
     </servlet-mapping>
+    
+    <servlet>
+    	<servlet-name>ListPostsServlet</servlet-name>
+    	<servlet-class>com.example.ListPostsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+    	<servlet-name>ListPostsServlet</servlet-name>
+    	<url-pattern>/listPosts</url-pattern>
+    </servlet-mapping>
+    <servlet>
+    	<servlet-name>ListPosts2Servlet</servlet-name>
+    	<servlet-class>com.example.ListPosts2Servlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+    	<servlet-name>ListPosts2Servlet</servlet-name>
+    	<url-pattern>/listPosts2</url-pattern>
+	</servlet-mapping>
+    
+	<!--ViewPostServlet추가--!>
+	<servlet>
+        <servlet-name>ViewPostServlet</servlet-name>
+        <servlet-class>com.example.ViewPostServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>ViewPostServlet</servlet-name>
+        <url-pattern>/postView</url-pattern>
+    </servlet-mapping>
+    
+    
 </web-app>
