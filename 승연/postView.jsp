@@ -1,0 +1,278 @@
+<%@ page import="java.util.List" %>
+<%@ page import="com.example.Post" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%
+	String id = (String) session.getAttribute("userId");
+	String nn = (String) session.getAttribute("nn");
+	String sn = (String) session.getAttribute("sn");
+	
+	if (nn == null || sn == null) {
+        nn = "로그인이 필요합니다.";
+        sn = "";
+    }
+	
+%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>숙분의 일</title>
+<style>
+		@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+		
+		* {
+        	text-decoration: none;
+        	list-style: none;
+        	font-family: "Jua", sans-serif;
+        }
+		
+		body {
+			margin:0;
+		}
+		
+		.head {
+			width: 100%;
+			height: 100%;
+			position: relative;
+		}
+		
+		/* 상단바 */
+		.section {
+			width: 100%;
+			height: 70px;
+			background-color: #076AD5;
+			margin : 0;
+			position: relative;
+			display: flex;
+			justify-content: space-between;
+		}
+		
+		.title {
+			font-size: 50px;
+			margin-left: 30px;
+		}
+		
+		.title a {
+			color: white;
+			font-size: 14px;
+		}
+		
+		.nav > ul > li {
+			width: 100px;
+			margin: 0 15px;
+			text-align: center;
+			
+		}
+		
+		.mypage ul {
+			display: flex;
+		}
+		
+		.mypage ul li {
+			margin-right: 30px;
+			font-size: 16px;
+		}
+		
+		.mypage a {
+			color: lightgray;
+		}
+		
+		.menu {
+			  overflow: hidden;
+		}
+
+		.menu > li {
+		  width: 20%; /*20*5=100%*/
+		  float: left;
+		  text-align: center;
+		  line-height: 40px;
+		  background-color: #076AD5;
+		  font-size: 18px;
+		}
+		
+		.menu a {
+		  color: #fff;
+		}
+		
+		.submenu > li {
+		  
+		  line-height: 50px;
+		  background-color: #076AD5;
+		}
+		
+		.submenu {
+		  height: 0; /*ul의 높이를 안보이게 처리*/
+		  overflow: hidden;
+		  padding: 0;
+		}
+		
+		.menu > li:hover {
+		  background-color: #076AD5;
+		  transition-duration: 0.5s;
+		}
+		
+		.menu > li:hover .submenu {
+		  height: 100%; /*서브메뉴 li한개의 높이 50*5*/
+		  transition-duration: 1s;}
+		  
+		.image, .info, .text {
+			display: block;
+		}
+		.profile {
+			display:flex;
+		}
+		.detail {
+			background-color: #E6E6E6;
+			border-radius: 5px;
+			padding : 
+		}
+		.detail > h5 {
+			margin : 0;
+			padding : 5px 10px;
+		}
+		.image {
+			margin: 10px auto;
+			text-align : center;
+		}
+		.image > img {
+			height: 300px;
+		}
+		.post {
+			width: 50%;
+			margin: 30px auto;
+		}
+		
+		.pic { 
+			height: 50px; 
+			width: 50px; 
+			margin: 0 auto; 
+			border-radius: 50%; 
+			flex:1;
+		}
+		.nickname {
+			margin-left: 10px;
+			flex: 18;
+		}
+		.chatdiv {
+			text-align : center;
+			margin-bottom : 20px;
+		}
+		.chat {
+			width:120px;
+			height: 40px;
+			color:#fff;
+			background: #004fff;
+			font-size: 16px;
+			border:none;
+			border-radius: 20px;
+			box-shadow: 0 4px 16px rgba(0,79,255,0.3);
+			transition:0.3s;
+		}
+		.chat:hover{
+			background: rgba(0,79,255,0.9);
+			cursor: pointer;
+			box-shadow: 0 2px 4px rgba(0,79,255,0.6);
+		}
+</style>
+</head>
+<body>
+	<div class="head">
+    	<div class="section">
+    		<div class="title">
+				<a href="Home.jsp"><h1>숙분의 일</h1></a>
+			</div>
+    	
+			<div class="nav">
+		        <ul class="menu">
+			      <li>
+			        <a href="#">공지/신고</a>
+			        <ul class="submenu">
+			          <li><a href="#">공지사항</a></li>
+			          <li><a href="#">신고</a></li>
+			        </ul>
+			      </li>
+			      <li>
+			        <a href="listPosts2.jsp">식사</a>
+			        <ul class="submenu">
+			          <li><a href="#">배달</a></li>
+			          <li><a href="#">식재료</a></li>
+			          <li><a href="#">인스턴트</a></li>
+			        </ul>
+			      </li>
+			      <li>
+			        <a href="listPosts.jsp">생필품</a>
+			        <ul class="submenu">
+			          <li><a href="#">생활용품</a></li>
+			          <li><a href="#">주방용품</a></li>
+			          <li><a href="#">청소용품</a></li>
+			          <li><a href="#">나눔</a></li>
+			        </ul>
+			      </li>			      
+			    </ul>
+		    </div>
+		    <div class="mypage">
+		    	<ul>
+		    		 <% 
+		    	if(id == null) {%>
+		    		<li><a href="login.jsp">로그인</a></li>
+		    		<li><a href="#">채팅</a></li> 
+		    		<%} else { %>
+		    		<li><a href="logout.jsp">로그아웃</a></li>
+		    		<li><a href="#">채팅</a></li> 
+		    		<%} %>
+		    	</ul>
+		    </div>
+	    </div>
+    </div>
+    
+    <div class="post">
+    	<%
+            Post post = (Post) request.getAttribute("post");
+            if (post != null) {
+        %>
+    
+    	<div class="profile">
+    		<div><img class="pic" src="login.png"></div>
+    		<div class="nickname"><p><%= post.getUserId() %></p></div>
+    	</div>
+    	<hr>
+    	<div class="info">
+    		<h2 class="posttitle"><%= post.getTitle() %></h2>
+    		<div class="detail">
+    			<h5 class="category">카테고리: <%= post.getCategory() %> / <%= post.getLCategory() %></h5>
+    			<h5 class="numpeople">구하는 인원: <%= post.getNumPeople() %>명</h5>
+	    		<h5 class="location">선호 장소: <%= post.getLocation() %></h5>
+	    		<h5 class="deadline">마감일시: <%= post.getDeadline() %></h5>
+    		</div>
+    	</div>
+    	<div class="image">
+    		<img src="<%= post.getImageUrl() %>">
+    	</div>
+    	<div class="text">
+    		<p>
+    		<%= post.getContent() %>
+    		</p>
+    	</div>
+    	<div class="chatdiv">
+        <script>
+        function redirectToSpringBootPage() {
+            // 새 창(또는 새 탭)으로 스프링 부트 애플리케이션의 특정 HTML 파일로 리다이렉트
+            window.open('http://localhost:8081/index.html', '_blank','width=800,height=600');
+        }
+    </script>
+    <button class="chat" onclick="redirectToSpringBootPage()">채팅보내기</button>
+
+    	</div>
+    	<hr>
+    	<%
+            } else {
+        %>
+        <p>게시물을 불러올 수 없습니다.</p>
+        <%
+            }
+        %>
+    	
+    </div>
+</body>
+</html>
