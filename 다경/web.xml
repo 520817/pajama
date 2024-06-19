@@ -29,7 +29,6 @@
     	<url-pattern>/listPosts2</url-pattern>
 	</servlet-mapping>
     
-	<!--ViewPostServlet추가--!>
 	<servlet>
         <servlet-name>ViewPostServlet</servlet-name>
         <servlet-class>com.example.ViewPostServlet</servlet-class>
